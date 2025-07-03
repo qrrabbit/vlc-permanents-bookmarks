@@ -1,0 +1,32 @@
+VLC Extension Loading Fix Instructions:
+
+Method 1: VLC Preferences
+1. Open VLC
+2. Go to VLC > Preferences (Cmd+,)
+3. Click "Show All" at bottom left
+4. Navigate to Interface > Control interfaces
+5. Look for Lua-related settings
+6. Ensure "Lua interface" or similar is enabled
+
+Method 2: Command Line Fix
+Try launching VLC with extension debugging:
+/Applications/VLC.app/Contents/MacOS/VLC --intf dummy --extraintf luaintf:dummy --verbose 2
+
+Method 3: Check VLC Version Compatibility
+VLC 3.0.18 might have extension compatibility issues.
+Consider updating to latest VLC version.
+
+Method 4: Manual Extension Loading
+VLC might need explicit extension activation.
+Try: VLC > Preferences > Show All > Interface > Main interfaces
+Look for Lua or Extension settings.
+
+Method 5: Reset VLC
+If all else fails, completely reset VLC preferences:
+1. Quit VLC
+2. Delete: ~/Library/Preferences/org.videolan.vlc.plist
+3. Delete: ~/Library/Application Support/org.videolan.vlc/
+4. Restart VLC
+5. Reinstall extensions
+
+The core issue: VLC is not scanning/loading the extensions directory on startup. 
